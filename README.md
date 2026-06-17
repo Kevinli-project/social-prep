@@ -1,4 +1,4 @@
-# Connect
+# Connect (2026 Velocity Cornerstone Project)
 
 > Tell Connect who you're about to meet. It identifies the right person from your saved context, finds relevant updates around their interests, and turns everything into a short, mobile-friendly conversation brief.
 
