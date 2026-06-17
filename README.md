@@ -96,6 +96,20 @@ Before returning, Connect validates the final card against hard constraints:
 
 ---
 
+## Security
+
+The core rule is simple: external content can help shape the conversation brief, but **it should not be able to control the app, call tools, change memory, or leak information**. Connect enforces this through **architectural isolation**, with prompt-level defenses and validation as supporting layers.
+
+Connect keeps that boundary clear in a few ways:
+
+* **Input screening** — the Intent Classifier can reject empty, abusive, off-topic, or obviously unsafe prompts before the main flow starts.
+* **Bounded research** — scraped pages are read by components that return structured findings, not tool actions.
+* **Confirmed memory writes** — Connect does not silently change saved context.
+* **Output validation** — Check / Validate enforces schema, source, length, and formatting rules, then uses an LLM judge to review the final card for safety before it reaches the user.
+
+---
+
+
 ## Status
 
 Active prototype. The Intent Classifier, Entity Resolution, and Find Topics & News are being iterated in the `backend/` notebooks. The unified orchestrator, and validation gate are in progress.
